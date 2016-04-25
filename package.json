@@ -1,0 +1,33 @@
+{
+  "name": "postcss-composes",
+  "version": "0.0.0",
+  "description": "PostCSS plugin to make `composes` work anywhere",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "css-modules",
+    "composes"
+  ],
+  "author": "Michele Bertoli <michele@berto.li>",
+  "license": "MIT",
+  "repository": "MicheleBertoli/postcss-composes",
+  "bugs": {
+    "url": "https://github.com/MicheleBertoli/postcss-composes/issues"
+  },
+  "homepage": "https://github.com/MicheleBertoli/postcss-composes",
+  "dependencies": {
+    "postcss": "^5.0.16"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "eslint": "^2.1.0",
+    "eslint-config-postcss": "^2.0.0"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
