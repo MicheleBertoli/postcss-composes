@@ -8,13 +8,19 @@
 
 ```css
 .foo {
-    /* Input example */
+  color: red;
+}
+.bar:hover {
+  composes: foo;
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  color: red;
+}
+.bar:hover {
+  color: red;
 }
 ```
 

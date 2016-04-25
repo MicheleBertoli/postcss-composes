@@ -11,10 +11,75 @@ function run(t, input, output, opts = { }) {
         });
 }
 
-/* Write tests here
-
-test('does something', t => {
-    return run(t, 'a{ }', 'a{ }', { });
+test('single', t => {
+    const input = `
+.a {
+  color: red;
+}
+.b:hover {
+  composes: a;
+}
+    `;
+    const output = `
+.a {
+  color: red;
+}
+.b:hover {
+  color: red;
+}
+    `;
+    return run(t, input, output, { });
 });
 
-*/
+test('multiple', t => {
+    const input = `
+.a {
+  color: red;
+}
+.b {
+  backround-color: green;
+}
+.c:hover {
+  composes: a b;
+}
+    `;
+    const output = `
+.a {
+  color: red;
+}
+.b {
+  backround-color: green;
+}
+.c:hover {
+  color: red;
+  backround-color: green;
+}
+    `;
+    return run(t, input, output, { });
+});
+
+test('recursive', t => {
+    const input = `
+.a {
+  color: red;
+}
+.b {
+  composes: a;
+}
+.c:hover {
+  composes: b;
+}
+    `;
+    const output = `
+.a {
+  color: red;
+}
+.b {
+  composes: a;
+}
+.c:hover {
+  color: red;
+}
+    `;
+    return run(t, input, output, { });
+});
