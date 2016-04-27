@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import test    from 'ava';
 
-import plugin from './';
+import plugin from '../src';
 
 function run(t, input, output, opts = { }) {
     return postcss([ plugin(opts) ]).process(input)
@@ -87,7 +87,7 @@ test('recursive', t => {
 test('external', t => {
     const input = `
 .b:hover {
-  composes: a from './a.css';
+  composes: a from "./a.css";
 }
     `;
     const output = `
