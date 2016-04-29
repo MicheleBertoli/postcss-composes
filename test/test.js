@@ -21,10 +21,10 @@ test('single', t => {
 }
     `;
     const output = `
-.a {
+:local(.a) {
   color: red;
 }
-.b:hover {
+:local(.b):hover {
   color: red;
 }
     `;
@@ -44,13 +44,13 @@ test('multiple', t => {
 }
     `;
     const output = `
-.a {
+:local(.a) {
   color: red;
 }
-.b {
+:local(.b) {
   backround-color: green;
 }
-.c:hover {
+:local(.c):hover {
   color: red;
   backround-color: green;
 }
@@ -71,13 +71,13 @@ test('recursive', t => {
 }
     `;
     const output = `
-.a {
+:local(.a) {
   color: red;
 }
-.b {
+:local(.b) {
   composes: a;
 }
-.c:hover {
+:local(.c):hover {
   color: red;
 }
     `;
@@ -91,7 +91,7 @@ test('external', t => {
 }
     `;
     const output = `
-.b:hover {
+:local(.b):hover {
   color: red;
 }
     `;

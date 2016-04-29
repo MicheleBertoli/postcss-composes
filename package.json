@@ -1,6 +1,7 @@
 {
   "name": "postcss-composes",
-  "version": "0.0.0",
+  "version": "0.0.3",
+  "main": "src/index.js",
   "description": "PostCSS plugin to make `composes` work anywhere",
   "keywords": [
     "postcss",
@@ -21,8 +22,10 @@
   },
   "devDependencies": {
     "ava": "^0.14.0",
+    "css-selector-tokenizer": "^0.5.4",
     "eslint": "^2.1.0",
-    "eslint-config-postcss": "^2.0.0"
+    "eslint-config-postcss": "^2.0.0",
+    "postcss-modules-local-by-default": "^1.0.1"
   },
   "scripts": {
     "test": "ava ./test && eslint *.js"
