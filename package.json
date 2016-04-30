@@ -1,6 +1,6 @@
 {
   "name": "postcss-composes",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.js",
   "description": "PostCSS plugin to make `composes` work anywhere",
   "keywords": [
@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/MicheleBertoli/postcss-composes",
   "dependencies": {
-    "postcss": "^5.0.16"
+    "postcss": "^5.0.16",
+    "css-selector-tokenizer": "^0.5.4",
+    "postcss-modules-local-by-default": "^1.0.1"
   },
   "devDependencies": {
     "ava": "^0.14.0",
-    "css-selector-tokenizer": "^0.5.4",
     "eslint": "^2.1.0",
-    "eslint-config-postcss": "^2.0.0",
-    "postcss-modules-local-by-default": "^1.0.1"
+    "eslint-config-postcss": "^2.0.0"
   },
   "scripts": {
     "test": "ava ./test && eslint *.js"

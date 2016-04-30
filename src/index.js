@@ -46,11 +46,15 @@ module.exports = postcss.plugin('postcss-composes', function (opts) {
         return result;
     }
 
-    function getCSS(rawFile, css) {
+    function processFile(source) {
+        return postcss([localByDefault(opts)]).process(source).css;
+    }
+
+    function getCSS(source, css) {
         var dirname = path.dirname(css.source.input.file);
-        var file = path.join(dirname, rawFile.replace(regex.trim, ''));
+        var file = path.join(dirname, source.replace(regex.trim, ''));
         var external = fs.readFileSync(file);
-        var processed = postcss([localByDefault(opts)]).process(external).css;
+        var processed = processFile(external);
 
         return postcss.parse(processed);
     }
@@ -82,7 +86,7 @@ module.exports = postcss.plugin('postcss-composes', function (opts) {
     }
 
     return function (css) {
-        postcss([localByDefault(opts)]).process(css).css;
+        processFile(css);
         css.walkRules(function (rule) {
             var selector = Tokenizer.parse(rule.selector);
             if (!isSingle(selector)) {
