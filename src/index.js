@@ -14,7 +14,7 @@ var regex = {
 module.exports = postcss.plugin('postcss-composes', function (opts) {
     opts = opts || {};
 
-    function isSingle(selector) {
+    function isAllowed(selector) {
         var result = true;
         selector.nodes.map(function (node) {
             if (node.type !== 'selector' ||
@@ -89,7 +89,7 @@ module.exports = postcss.plugin('postcss-composes', function (opts) {
         processFile(css);
         css.walkRules(function (rule) {
             var selector = Tokenizer.parse(rule.selector);
-            if (!isSingle(selector)) {
+            if (!isAllowed(selector)) {
                 rule.nodes = getNodes([], rule, css);
             }
         });
